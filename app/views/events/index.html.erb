@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <div class="container">
+        <p style="color: green"><%= notice %></p>
+        <h1>Events</h1>
+
+      <div id="events">
+        <% @events.each do |event| %>
+        <%= render event %>
+        <p>
+          <%= link_to "Show this event", event %>
+        </p>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 80px auto;
+}
+</style>
