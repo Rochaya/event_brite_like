@@ -1,7 +1,0 @@
-<!--<p>Find me in app/views/pages/home.html.erb</p>-->
-<% if current_user %>
-    <p>Connecter avec l'email <%= current_user.email %></p>
-    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
-<% else %>
-    
-<% end %>

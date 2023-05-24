@@ -1,15 +1,12 @@
-<html>
-  <body>
-  <div class="container">
-    <h1>New event</h1>
-      <%= render "form", event: @event %>
+
+    <div class="container">
+      <h1>New event</h1>
+        <%= render "form", event: @event %>
       <br>
-    <div>
-    <%= link_to "Back to events", events_path %>
+      <div>
+      <%= link_to "Back to events", events_path %>
+      </div>
     </div>
-  </div>
-  </body>
-</html>
 
 <style>
 .container {

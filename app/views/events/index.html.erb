@@ -1,27 +1,48 @@
-<html>
-  <body>
-    <div class="container">
+
+    <div class="madiv">
         <p style="color: green"><%= notice %></p>
         <h1>Events</h1>
-
-      <div id="events">
-        <% @events.each do |event| %>
-        <%= render event %>
-        <p>
-          <%= link_to "Show this event", event %>
-        </p>
-        <% end %>
-      </div>
     </div>
-  </body>
-</html>
+    <div class="container">
+        <% @events.each do |event| %>
+          <div class="card">
+            <div class="card-body">
+              <div id="events">
+                <%= render event %>
+                <p>
+                <%= link_to "Show this event", event %>
+                </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
 
 <style>
-.container {
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin: 80px auto;
-}
-</style>
+  }
+
+  #events {
+      color: white;
+  }
+
+  .card {
+    background: rgb(70,0,139);
+    background: linear-gradient(114deg, rgba(70,0,139,1) 0%, rgba(6,0,203,1) 0%);
+    width: 300px;
+    margin: 10px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .madiv {
+    text-align: center;
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,44 @@
+<nav class="nav">
+    <%= link_to(root_path, class: "home-link") do %>
+      <h2>EventBrite</h2>
+    <% end %>
+
+    <div class="list-nav">
+      <ul>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Créer ton event !", new_event_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Créer ton event !", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+            <%= link_to "Qui sommes-nous ?", '#' , class:"nav-link" %>
+        </li>
+      </ul>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profil / Déconnexion
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="<%= edit_user_registration_path %>">Profil</a>
+          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% else %>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Connexion / Inscription
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
+          <a class="dropdown-item" href="<%= new_user_registration_path %>">Inscription</a>
+        </div>
+      </div>
+    <% end %>
+</nav>
